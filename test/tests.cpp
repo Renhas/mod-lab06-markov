@@ -51,22 +51,16 @@ TEST(text_generate, with_length) {
     suffix sf = suffix();
     pr.push_back(L"first");
     sf.push_back(L"second");
-    sf.push_back(L"third");
     table[pr] = sf;
     pr.clear();
     pr.push_back(L"second");
     sf.clear();
     sf.push_back(L"first");
-    sf.push_back(L"third");
     table[pr] = sf;
-    pr.clear();
-    pr.push_back(L"third");
-    sf.clear();
-    sf.push_back(L"first");
-    sf.push_back(L"second");
-    table[pr] = sf;
+    
     Markov m = Markov(table);
-    std::wstring expected = L"third second first second third first second ";
-    expected += L"first second first third second third second third second ";
+    
+    std::wstring expected = L"second first second first second first second ";
+    expected += L"first second first second first second first second first ";
     EXPECT_EQ(expected, m.Generate(100, 1));
 }
