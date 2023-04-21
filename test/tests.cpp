@@ -57,9 +57,7 @@ TEST(text_generate, with_length) {
     sf.clear();
     sf.push_back(L"first");
     table[pr] = sf;
-    
     Markov m = Markov(table);
-    
     std::wstring expected = L"second first second first second first second ";
     expected += L"first second first second first second first second first ";
     EXPECT_EQ(expected, m.Generate(100, 1));
