@@ -4,10 +4,11 @@
 #include <iostream>
 
 
-int main()
-{
+int main() {
     setlocale(LC_ALL, "");
-    std::wstring text = L"You have brains in your head. You have feet in your shoes. You can steer yourself any direction you choose. You’re on your own.";
+    std::wstring text = L"You have brains in your head.\
+        You have feet in your shoes.\
+        You can steer yourself any direction you choose.";
 
     Markov gen = Markov(text, 2);
 

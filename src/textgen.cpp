@@ -1,8 +1,7 @@
 // Copyright 2021 GHA Test Team
 #include "textgen.h"
 
-Markov::Markov(std::wstring text, int nPref)
-{
+Markov::Markov(std::wstring text, int nPref) {
     if (nPref >= text.length())
         throw std::invalid_argument("Number of prefix must be < text length");
 
@@ -18,8 +17,7 @@ Markov::Markov(std::wstring text, int nPref)
             suffix sf = suffix();
             sf.push_back(words[i]);
             statetab[pr] = sf;
-        }
-        else {
+        } else {
             statetab[pr].push_back(words[i]);
         }
         pr.pop_front();
@@ -27,13 +25,11 @@ Markov::Markov(std::wstring text, int nPref)
     }
 }
 
-Markov::Markov(std::map<prefix, suffix> table)
-{
+Markov::Markov(std::map<prefix, suffix> table) {
     statetab = table;
 }
 
-std::wstring Markov::Generate(int maxLen, int seed)
-{
+std::wstring Markov::Generate(int maxLen, int seed) {
     std::wstring result;
     prefix pr = statetab.begin()->first;
     std::srand(seed);
@@ -47,8 +43,7 @@ std::wstring Markov::Generate(int maxLen, int seed)
     return result;
 }
 
-const std::map<prefix, suffix> Markov::GetTable()
-{
+const std::map<prefix, suffix> Markov::GetTable() {
     return statetab;
 }
 
