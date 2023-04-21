@@ -11,6 +11,5 @@ int main() {
 
     Markov gen = Markov(text, 2);
 
-    std::wofstream out;
     std::wcout << gen.Generate(500);
 }
