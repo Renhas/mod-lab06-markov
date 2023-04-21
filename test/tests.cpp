@@ -1,6 +1,6 @@
 // Copyright 2021 GHA Test Team
 #include <gtest/gtest.h>
-#include <textgen.h>
+#include "textgen.h"
 
 TEST(prefix_count, first) {
     std::wstring t = L"first second third";
