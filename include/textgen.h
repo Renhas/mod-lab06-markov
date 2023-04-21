@@ -11,10 +11,10 @@ typedef std::deque<std::wstring> prefix;
 typedef std::vector<std::wstring> suffix;
 
 class Markov {
-private:
+ private:
     std::map<prefix, suffix> statetab;
 
-public:
+ public:
     explicit Markov(std::wstring text, int nPref = 2);
     explicit Markov(std::map<prefix, suffix> table);
     std::wstring Generate(int maxLen, int seed = 1);
