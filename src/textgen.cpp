@@ -34,6 +34,9 @@ std::wstring Markov::Generate(int maxLen, int seed) {
     prefix pr = statetab.begin()->first;
     std::srand(seed);
     while (result.length() < maxLen) {
+        if (statetab.find(pr) == statetab.end()) {
+            break;
+        }
         suffix sf = statetab[pr];
         int id = std::rand() % sf.size();
         result += sf[id] + L" ";
